@@ -9,12 +9,13 @@
 
 // LOGICA
 // Creare una funzione per generare 16 numeri random (e unici) da 1 a 100 e salvarli in un array
-
+var score = 0;
 getNumRandom(100,1,16);
 
 // Creare un prompt per chiedere all'utente un numero da 1 a 100 + check vari
 
 var numUser = numberRequest(numUser, 84);
+
 
 
 // FUNZIONI
@@ -46,19 +47,27 @@ while(arrayUser.length < time){
       console.log("Hai già inserito questo numero");
     }
     if(arrayUser.indexOf(y) === -1 && blackRandom.indexOf(y) === -1) {
-      arrayUser.push(y);
-      console.log("I numeri inseriti dall'utente sono ", arrayUser);
-    }
+    arrayUser.push(y);
+    console.log("I numeri inseriti dall'utente sono ", arrayUser);
+    score++;
+    console.log("Il punteggio è ", score);
+  }
+
+
     // Verificare se il numero inserito si trova o no nella black list dei 16 numeri "bomba"
       // Se il numero è nella black list --> GAME OVER
     if (blackRandom.includes(y)) {
       return console.log("Game over");
     }
 
+
+
     i++;
 }
 }
 
 // Per ogni numero corretto viene attribuito un punteggio
+
+
 
 // Comunicare a fine partita il punteggio ottenuto
