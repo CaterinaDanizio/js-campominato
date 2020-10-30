@@ -14,43 +14,34 @@ var blackRandom = [];
 var arrayUser = [];
 
 // LOGICA
-// Creare una funzione per generare 16 numeri random (e unici) da 1 a 100 e salvarli in un array
-getNumRandom(100,1,16);
-
-// Creare un prompt per chiedere all'utente un numero da 1 a 100 + check vari
-
-var numUser = numberRequest(numUser, 84);
-
-
-// FUNZIONI
 
   // Generazione numeri random
 
-function getNumRandom(max, min, time){
-  // blackRandom = [];
+// function getNumRandom(max, min, time){
   var i = blackRandom;
-while(blackRandom.length < time){
-    var n = Math.floor(Math.random() * max) + min;
-    if(blackRandom.indexOf(n) === -1) blackRandom.push(n);
-
+while(blackRandom.length < 16) {
+    var n = Math.floor(Math.random() * 100) + 1;
+    if(blackRandom.indexOf(n) === -1) {blackRandom.push(n);
     i++;
+ }
 }
 console.log("I numeri bomba sono ", blackRandom);
 
-}
+
 
 // Richiesta numero utente
 
-function numberRequest(y, time){
+// function numberRequest(y, time){
 var i = arrayUser;
-while(arrayUser.length < time){
-  var y = parseInt(prompt("Inserisci un numero da 1 a 100"));
+while(arrayUser.length < 84){
+  var numeroUser = parseInt(prompt("Inserisci un numero da 1 a 100"));
   // Mettere come condizioni che il numero sia stato inserito solo una volta e non appartenga alla black list
-    if (y <= 100 && arrayUser.includes(y) && blackRandom.indexOf(y) === -1) {
-      console.log("Hai già inserito questo numero");
+    if (numeroUser <= 100 && arrayUser.includes(numeroUser) && blackRandom.indexOf(numeroUser) === -1) {
+      alert("Hai già inserito questo numero");
     }
-    if(y <= 100 && arrayUser.indexOf(y) === -1 && blackRandom.indexOf(y) === -1  && score < time) {
-    arrayUser.push(y);
+    if(numeroUser <= 100 && arrayUser.indexOf(numeroUser) === -1 && blackRandom.indexOf(numeroUser) === -1  && score < 84) {
+    arrayUser.push(numeroUser);
+    // debug
     console.log("I numeri inseriti dall'utente sono ", arrayUser);
 
 
@@ -59,20 +50,20 @@ while(arrayUser.length < time){
     console.log("Il punteggio è ", score);
   }
 
-  if (y > 100) {
+  if (numeroUser > 100) {
     alert("Il numero è maggiore di 100. Riprova")
   }
 
-  if (score === time) {
+  if (score === 84) {
     alert("Complimenti HAI VINTO!");
   }
 
     // Verificare se il numero inserito si trova o no nella black list dei 16 numeri "bomba"
       // Se il numero è nella black list --> GAME OVER
-    if (blackRandom.includes(y)) {
+    if (blackRandom.includes(numeroUser)) {
       console.log("Game over");
-      return alert("Peccato, hai perso! Il tuo punteggio è " + score);
+      alert("Peccato, hai perso! Il tuo punteggio è " + score);
     }
-    i++;
-}
-}
+  i++;
+ }
+// }
