@@ -16,22 +16,18 @@ var arrayUser = [];
 // LOGICA
 
   // Generazione numeri random
-
-// function getNumRandom(max, min, time){
   var i = blackRandom;
-while(blackRandom.length < 16) {
+  while(blackRandom.length < 16) {
     var n = Math.floor(Math.random() * 100) + 1;
     if(blackRandom.indexOf(n) === -1) {blackRandom.push(n);
     i++;
- }
-}
+    }
+  }
 console.log("I numeri bomba sono ", blackRandom);
 
 
 
 // Richiesta numero utente
-
-// function numberRequest(y, time){
 var i = arrayUser;
 while(arrayUser.length < 84){
   var numeroUser = parseInt(prompt("Inserisci un numero da 1 a 100"));
@@ -47,6 +43,7 @@ while(arrayUser.length < 84){
 
     // Per ogni numero corretto viene attribuito un punteggio
     score++;
+    // debug
     console.log("Il punteggio è ", score);
   }
 
@@ -56,6 +53,7 @@ while(arrayUser.length < 84){
 
   if (score === 84) {
     alert("Complimenti HAI VINTO!");
+    window.location.reload();
   }
 
     // Verificare se il numero inserito si trova o no nella black list dei 16 numeri "bomba"
@@ -63,6 +61,7 @@ while(arrayUser.length < 84){
     if (blackRandom.includes(numeroUser)) {
       console.log("Game over");
       alert("Peccato, hai perso! Il tuo punteggio è " + score);
+      window.location.reload();
     }
   i++;
  }
