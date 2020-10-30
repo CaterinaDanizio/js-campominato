@@ -42,7 +42,6 @@ console.log("I numeri bomba sono ", blackRandom);
 // Richiesta numero utente
 
 function numberRequest(y, time){
-// var arrayUser = [];
 var i = arrayUser;
 while(arrayUser.length < time){
   var y = parseInt(prompt("Inserisci un numero da 1 a 100"));
@@ -64,14 +63,9 @@ while(arrayUser.length < time){
     alert("Il numero è maggiore di 100. Riprova")
   }
 
-  if (score < time) {
-    var y = parseInt(prompt("Inserisci un numero da 1 a 100"));
-  }
-
-  else if (score = time) {
+  if (score === time) {
     alert("Complimenti HAI VINTO!");
   }
-
 
     // Verificare se il numero inserito si trova o no nella black list dei 16 numeri "bomba"
       // Se il numero è nella black list --> GAME OVER
@@ -79,7 +73,6 @@ while(arrayUser.length < time){
       console.log("Game over");
       return alert("Peccato, hai perso! Il tuo punteggio è " + score);
     }
-
     i++;
 }
 }
